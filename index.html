@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buildo — AI website builder</title>
+<meta name="description" content="Describe your site. Buildo builds it. Coming soon.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0a;
+    --panel: #111111;
+    --text: #f2f2f2;
+    --muted: #888888;
+    --border: #262626;
+    --accent: #7F77DD;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--text);
+  }
+
+  .logo svg {
+    color: var(--accent);
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .eyebrow {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid #3a3670;
+    padding: 5px 12px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+
+  h1 span {
+    color: var(--muted);
+  }
+
+  p.subtext {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  form {
+    display: flex;
+    gap: 0;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+
+  input[type="email"] {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 14px;
+    padding: 14px 16px;
+    font-family: inherit;
+  }
+
+  input[type="email"]::placeholder {
+    color: #555;
+  }
+
+  button {
+    background: var(--text);
+    color: var(--bg);
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  button:hover {
+    background: #d9d9d9;
+  }
+
+  .status {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    min-height: 18px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg>
+    Buildo
+  </div>
+  <div style="font-size: 13px; color: var(--muted);">Launching soon</div>
+</nav>
+
+<main>
+  <div class="eyebrow">$ ai_site_builder --v2</div>
+  <h1>Describe it.<br><span>Buildo builds it.</span></h1>
+  <p class="subtext">
+    An AI website builder that turns a plain description into a real, working site.
+    No templates, no drag-and-drop. We're putting on the finishing touches.
+  </p>
+
+  <form id="notify-form">
+    <input type="email" id="email" placeholder="you@example.com" required>
+    <button type="submit">Notify me</button>
+  </form>
+  <div class="status" id="status"></div>
+</main>
+
+<footer>
+  © <span id="year"></span> Buildo. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('notify-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('email').value;
+    var status = document.getElementById('status');
+    // Placeholder only — wire this up to your backend/email list later.
+    status.textContent = "Thanks — we'll let you know at " + email + ".";
+    document.getElementById('email').value = '';
+  });
+</script>
+
+</body>
+</html>
