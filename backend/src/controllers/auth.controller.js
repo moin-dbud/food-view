@@ -81,7 +81,7 @@ function logoutUser(req, res) {
 
 async function registerFoodPartner(req, res) {
 
-    const { name, email, password } = req.body;
+    const { restaurantName, ownerName, email, password } = req.body;
 
     const isFoodPartnerAlreadyExist = await foodPartnerModel.findOne({ email: email });
 
@@ -92,7 +92,8 @@ async function registerFoodPartner(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const foodPartner = await foodPartnerModel.create({
-        name,
+        restaurantName,
+        ownerName,
         email,
         password: hashedPassword
     });
@@ -107,7 +108,8 @@ async function registerFoodPartner(req, res) {
         message: 'Food partner registered successfully',
         foodPartner: {
             id: foodPartner._id,
-            name: foodPartner.name,
+            restaurantName: foodPartner.restaurantName,
+            ownerName: foodPartner.ownerName,
             email: foodPartner.email
         }
     });
@@ -143,7 +145,8 @@ async function loginFoodPartner(req, res) {
         message: 'Food partner logged in successfully',
         foodPartner: {
             id: foodPartner._id,
-            name: foodPartner.name,
+            restaurantName: foodPartner.restaurantName,
+            ownerName: foodPartner.ownerName,
             email: foodPartner.email
         }
     });
