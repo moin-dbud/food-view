@@ -1,0 +1,233 @@
+.create-food-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 32px;
+  background:
+    radial-gradient(circle at top, rgba(76, 175, 109, 0.14), transparent 38%),
+    var(--bg);
+}
+
+.create-food-card {
+  width: min(100%, 560px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 22px 18px 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.create-food-header {
+  margin-bottom: 22px;
+}
+
+.create-food-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.create-food-header h1 {
+  font-size: clamp(1.7rem, 7vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
+}
+
+.create-food-header p {
+  color: var(--text-soft);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.create-food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-group label {
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.field-group input,
+.field-group textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  border-radius: 16px;
+  padding: 14px 15px;
+  color: var(--text);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field-group textarea {
+  min-height: 128px;
+  resize: vertical;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+  color: var(--text-soft);
+}
+
+.field-group input:focus,
+.field-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+.video-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-upload {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-height: 190px;
+  padding: 18px 16px;
+  border: 1.5px dashed rgba(76, 175, 109, 0.45);
+  border-radius: 18px;
+  background: rgba(76, 175, 109, 0.04);
+  overflow: hidden;
+}
+
+.video-upload-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: 0 12px 24px rgba(46, 138, 77, 0.18);
+}
+
+.video-upload-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.video-upload-meta strong {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.video-upload-meta span {
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.video-upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.video-preview-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-muted);
+}
+
+.video-preview {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: #0f1712;
+  object-fit: cover;
+}
+
+.remove-video-btn {
+  align-self: flex-end;
+  border: 1px solid rgba(22, 32, 24, 0.1);
+  background: black;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.primary-btn {
+  border: 0;
+  border-radius: 14px;
+  font: inherit;
+  font-weight: 700;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(46, 138, 77, 0.22);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+}
+
+@media (min-width: 768px) {
+  .create-food-page {
+    padding: 40px 20px;
+  }
+
+  .create-food-card {
+    padding: 28px 28px 24px;
+    border-radius: 28px;
+  }
+
+  .create-food-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-actions {
+    flex-direction: row-reverse;
+  }
+
+  .primary-btn {
+    flex: 1;
+  }
+}
