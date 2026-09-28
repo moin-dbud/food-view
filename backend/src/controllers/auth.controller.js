@@ -81,7 +81,7 @@ function logoutUser(req, res) {
 
 async function registerFoodPartner(req, res) {
 
-    const { restaurantName, ownerName, email, password } = req.body;
+    const { restaurantName, address, email, password } = req.body;
 
     const isFoodPartnerAlreadyExist = await foodPartnerModel.findOne({ email: email });
 
@@ -93,7 +93,7 @@ async function registerFoodPartner(req, res) {
 
     const foodPartner = await foodPartnerModel.create({
         restaurantName,
-        ownerName,
+        address,
         email,
         password: hashedPassword
     });
@@ -109,7 +109,7 @@ async function registerFoodPartner(req, res) {
         foodPartner: {
             id: foodPartner._id,
             restaurantName: foodPartner.restaurantName,
-            ownerName: foodPartner.ownerName,
+            address: foodPartner.address,
             email: foodPartner.email
         }
     });
@@ -146,7 +146,7 @@ async function loginFoodPartner(req, res) {
         foodPartner: {
             id: foodPartner._id,
             restaurantName: foodPartner.restaurantName,
-            ownerName: foodPartner.ownerName,
+            address: foodPartner.address,
             email: foodPartner.email
         }
     });
